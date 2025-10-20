@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             <p className="text-gray-300">
               Transforming ideas into digital reality with cutting-edge technology and creative solutions.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors">
                 Facebook
               </a>

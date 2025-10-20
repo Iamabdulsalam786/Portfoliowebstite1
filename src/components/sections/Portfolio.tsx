@@ -223,7 +223,7 @@ const Portfolio: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -232,9 +232,9 @@ const Portfolio: React.FC = () => {
               className="group cursor-pointer"
               onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
             >
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary-200">
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-32 sm:h-36 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -269,55 +269,43 @@ const Portfolio: React.FC = () => {
                 </div>
                 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+                <div className="p-4">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-1">
                     {project.title}
                   </h4>
                   
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-2">
+                  <p className="text-gray-600 mb-3 text-xs leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
                   
-                  {/* Project Stats */}
-                  <div className="grid grid-cols-2 gap-4 mb-4 text-xs">
-                    <div>
-                      <div className="text-gray-500">Client</div>
-                      <div className="font-semibold text-gray-900">{project.client}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-500">Duration</div>
-                      <div className="font-semibold text-gray-900">{project.duration}</div>
-                    </div>
-                  </div>
-                  
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                  {/* Technologies - Simplified */}
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {project.technologies.slice(0, 2).map((tech, techIndex) => (
                       <span key={techIndex} className="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-medium">
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 3 && (
+                    {project.technologies.length > 2 && (
                       <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs font-medium">
-                        +{project.technologies.length - 3}
+                        +{project.technologies.length - 2}
                       </span>
                     )}
                   </div>
                   
-                  {/* Results */}
-                  <div className="space-y-1 mb-4">
-                    {project.results.slice(0, 2).map((result, resultIndex) => (
+                  {/* Single Result */}
+                  <div className="mb-3">
+                    {project.results.slice(0, 1).map((result, resultIndex) => (
                       <div key={resultIndex} className="flex items-center text-green-600">
                         <span className="mr-2 text-xs">✓</span>
-                        <span className="text-xs font-medium">{result}</span>
+                        <span className="text-xs font-medium line-clamp-1">{result}</span>
                       </div>
                     ))}
                   </div>
                   
                   {/* Action Buttons */}
-                  <div className="flex gap-2">
+                  <div className="flex gap-1">
                     <motion.button
-                      className="flex-1 bg-gradient-to-r from-primary-600 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-primary-700 hover:to-purple-700 transition-all duration-300"
+                      className="flex-1 bg-gradient-to-r from-primary-600 to-purple-600 text-white py-1.5 px-3 rounded-md text-xs font-semibold hover:from-primary-700 hover:to-purple-700 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={(e) => {
@@ -328,7 +316,7 @@ const Portfolio: React.FC = () => {
                       View Live
                     </motion.button>
                     <motion.button
-                      className="flex-1 border border-primary-600 text-primary-600 py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary-600 hover:text-white transition-all duration-300"
+                      className="flex-1 border border-primary-600 text-primary-600 py-1.5 px-3 rounded-md text-xs font-semibold hover:bg-primary-600 hover:text-white transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={(e) => {
@@ -336,7 +324,7 @@ const Portfolio: React.FC = () => {
                         setSelectedProject(project.id);
                       }}
                     >
-                      Details
+                      Get in touch
                     </motion.button>
                   </div>
                 </div>
@@ -392,7 +380,7 @@ const Portfolio: React.FC = () => {
                     }
                   }}
                 >
-                  Start Your Project
+                  Get in touch
                 </motion.button>
                 
                 <motion.button

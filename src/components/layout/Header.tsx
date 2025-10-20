@@ -34,7 +34,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary-600">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
               TechCraft
             </Link>
           </div>
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
               onClick={() => scrollToSection('contact')}
               className="btn-primary"
             >
-              Get Quote
+              Get in touch
             </button>
           </div>
 
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
                   onClick={() => scrollToSection('contact')}
                   className="btn-primary w-full text-center block"
                 >
-                  Get Quote
+                  Get in touch
                 </button>
               </div>
             </nav>
