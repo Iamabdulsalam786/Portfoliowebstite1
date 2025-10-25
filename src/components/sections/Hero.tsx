@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-18 md:pt-20 lg:pt-24 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 sm:pt-18 md:pt-20 lg:pt-16 overflow-hidden pb-8 sm:pb-12 lg:pb-16">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100">
         <div className="absolute inset-0 opacity-5 sm:opacity-10 md:opacity-20">
@@ -88,26 +88,26 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-16 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-2 relative z-10">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center text-center lg:text-left"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center text-center lg:text-left"
         >
           {/* Left Content */}
-          <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
             <motion.div variants={itemVariants} className="space-y-3 sm:space-y-4 md:space-y-6">
               <motion.div
-                className="inline-block px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3 md:mb-4"
+                className="inline-block px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold mb-1 sm:mb-2 md:mb-2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 🚀 Award-Winning Digital Agency
               </motion.div>
               
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
                 <motion.span variants={itemVariants} className="block">
                   Transforming Ideas into
                 </motion.span>
@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
               
               <motion.p 
                 variants={itemVariants}
-                className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0"
+                className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0"
               >
                 We create <span className="font-semibold text-primary-600">stunning websites</span>, 
                 <span className="font-semibold text-purple-600"> powerful mobile apps</span>, and 
@@ -130,11 +130,11 @@ const Hero: React.FC = () => {
               </motion.p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6 justify-center lg:justify-start">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <motion.div
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto"
+                className="w-[60%] sm:w-auto mx-auto sm:mx-0"
               >
                 <button 
                   onClick={() => {
@@ -143,7 +143,7 @@ const Hero: React.FC = () => {
                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base relative overflow-hidden group"
+                  className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm relative overflow-hidden group"
                 >
                   <span className="relative z-10">View Our Work</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -153,7 +153,7 @@ const Hero: React.FC = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto"
+                className="w-[60%] sm:w-auto mx-auto sm:mx-0"
               >
                 <button 
                   onClick={() => {
@@ -162,7 +162,7 @@ const Hero: React.FC = () => {
                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="w-full bg-white hover:bg-primary-50 text-primary-600 font-semibold py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-6 rounded-lg border-2 border-primary-600 hover:border-primary-700 transition-all duration-300 text-sm sm:text-base"
+                  className="w-full bg-white hover:bg-primary-50 text-primary-600 font-semibold py-2.5 px-5 rounded-lg border-2 border-primary-600 hover:border-primary-700 transition-all duration-300 text-sm"
                 >
                   Learn More
                 </button>

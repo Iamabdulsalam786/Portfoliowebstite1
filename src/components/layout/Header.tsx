@@ -34,7 +34,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      <header className={`sticky top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' : 'bg-white/90 backdrop-blur-sm shadow-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,17 +100,32 @@ const Header: React.FC = () => {
         />
       )}
 
-      {/* Mobile Navigation Menu - Centered */}
-      <div className={`fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl border-t border-gray-200 z-50 lg:hidden transition-all duration-300 ${
-        isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+      {/* Mobile Navigation Drawer - Slides from Left */}
+      <div className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-[60] lg:hidden transition-all duration-300 ease-in-out ${
+        isMenuOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <nav className="py-6 px-4">
-          <div className="max-w-sm mx-auto space-y-1">
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <h2 className="text-lg font-semibold text-gray-800">Menu</h2>
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            aria-label="Close menu"
+          >
+            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Drawer Content */}
+        <nav className="p-4">
+          <div className="space-y-2">
             {navItems.map((item, index) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-center text-gray-700 hover:text-primary-600 font-medium transition-all duration-200 py-3.5 px-4 text-base hover:bg-primary-50 rounded-xl transform hover:scale-105"
+                className="block w-full text-left text-gray-700 hover:text-primary-600 hover:bg-primary-50 font-medium transition-all duration-200 py-3 px-4 text-base rounded-lg"
                 style={{
                   animationDelay: `${index * 50}ms`,
                   animation: isMenuOpen ? 'fadeInUp 0.3s ease-out forwards' : 'none'
@@ -119,14 +134,16 @@ const Header: React.FC = () => {
                 {item.name}
               </button>
             ))}
-            <div className="pt-4 border-t border-gray-200 mt-4">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg text-base transform hover:scale-105 hover:-translate-y-0.5"
-              >
-                Get in touch
-              </button>
-            </div>
+          </div>
+          
+          {/* CTA Button */}
+          <div className="mt-6 pt-4 border-t border-gray-200">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg text-base transform hover:scale-105"
+            >
+              Get in touch
+            </button>
           </div>
         </nav>
       </div>
