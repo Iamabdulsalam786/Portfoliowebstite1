@@ -90,24 +90,24 @@ const About: React.FC = () => {
   );
 
   return (
-    <section id="about" className="section-padding bg-white">
-      <div className="container-custom">
+    <section id="about" className="py-12 sm:py-16 px-3 sm:px-4 lg:px-8 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Company Story */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             About <span className="text-primary-600">TechCraft</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
             Founded in 2019, TechCraft Solutions emerged from a simple belief: technology should empower businesses, not complicate them. 
             We started as a small team of passionate developers and designers who wanted to create digital solutions that truly make a difference.
           </p>
         </div>
 
         {/* Company Story Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-gray-900">Our Journey</h3>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Our Journey</h3>
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
               <p>
                 What began as a startup in a small office has grown into a trusted partner for businesses worldwide. 
                 We've helped companies transform their digital presence, streamline operations, and reach new heights of success.

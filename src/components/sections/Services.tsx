@@ -91,34 +91,34 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="services" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5 sm:opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #3b82f6 2px, transparent 2px),
-                           radial-gradient(circle at 75% 75%, #8b5cf6 2px, transparent 2px)`,
-          backgroundSize: '40px 40px',
-          backgroundPosition: '0 0, 20px 20px'
+          backgroundImage: `radial-gradient(circle at 25% 25%, #3b82f6 1px, transparent 1px),
+                           radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px)`,
+          backgroundSize: '20px 20px',
+          backgroundPosition: '0 0, 10px 10px'
         }}></div>
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <motion.div variants={itemVariants} className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-6">
+          <motion.div variants={itemVariants} className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
             🚀 Our Services
           </motion.div>
           
-          <motion.h2 variants={itemVariants} className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
             Professional <span className="bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">Digital Solutions</span>
           </motion.h2>
           
-          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <motion.p variants={itemVariants} className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             We offer comprehensive digital solutions to help your business thrive in the modern world. 
             From custom websites to mobile apps, we've got you covered.
           </motion.p>
@@ -128,7 +128,7 @@ const Services: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
         >
           {services.map((service, index) => (
             <motion.div
@@ -136,30 +136,30 @@ const Services: React.FC = () => {
               variants={itemVariants}
               className="group"
             >
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 h-full border border-gray-100 hover:border-primary-200 relative overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 sm:p-8 lg:p-10 h-full border border-gray-100 hover:border-primary-200 relative overflow-hidden">
                 {/* Gradient Background on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                 
                 <div className="relative z-10">
-                  <div className="text-center mb-6">
+                  <div className="text-center mb-6 sm:mb-8">
                     <motion.div
-                      className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r ${service.color} text-white mb-6 shadow-lg`}
+                      className={`inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-r ${service.color} text-white mb-6 shadow-lg`}
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <span className="text-3xl">{service.icon}</span>
+                      <span className="text-2xl sm:text-3xl lg:text-4xl">{service.icon}</span>
                     </motion.div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
                       {service.description}
                     </p>
                   </div>
 
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 mb-6 sm:mb-8">
                     {service.features.map((feature, featureIndex) => (
                       <motion.li
                         key={featureIndex}
@@ -169,13 +169,13 @@ const Services: React.FC = () => {
                         transition={{ delay: featureIndex * 0.1 }}
                       >
                         <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-3 flex-shrink-0`}></div>
-                        <span className="text-sm">{feature}</span>
+                        <span className="text-sm sm:text-base">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
 
                   {/* Price and Timeline */}
-                  <div className="border-t border-gray-100 pt-6 mb-6">
+                  <div className="border-t border-gray-100 pt-6 mb-6 sm:mb-8">
                     <div className="flex justify-between items-center mb-4">
                       <div>
                         <div className="text-sm text-gray-500">Starting Price</div>
@@ -189,7 +189,7 @@ const Services: React.FC = () => {
                   </div>
 
                   <motion.button
-                    className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105"
+                    className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105 text-base"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {

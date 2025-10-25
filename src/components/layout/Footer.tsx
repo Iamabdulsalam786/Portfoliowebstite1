@@ -5,28 +5,28 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container-custom py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-primary-400">TechCraft</h3>
             <p className="text-gray-300">
               Transforming ideas into digital reality with cutting-edge technology and creative solutions.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm sm:text-base">
                 Facebook
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm sm:text-base">
                 Twitter
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm sm:text-base">
                 LinkedIn
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm sm:text-base">
                 Instagram
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm sm:text-base">
                 GitHub
               </a>
             </div>
@@ -34,13 +34,13 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Quick Links</h4>
+            <h4 className="text-base sm:text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-300 hover:text-primary-400 transition-colors">Home</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-primary-400 transition-colors">Services</a></li>
-              <li><a href="#portfolio" className="text-gray-300 hover:text-primary-400 transition-colors">Portfolio</a></li>
-              <li><a href="#about" className="text-gray-300 hover:text-primary-400 transition-colors">About</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-primary-400 transition-colors">Contact</a></li>
+              <li><a href="#home" className="text-gray-300 hover:text-primary-400 transition-colors text-sm sm:text-base">Home</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-primary-400 transition-colors text-sm sm:text-base">Services</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-primary-400 transition-colors text-sm sm:text-base">Portfolio</a></li>
+              <li><a href="#about" className="text-gray-300 hover:text-primary-400 transition-colors text-sm sm:text-base">About</a></li>
+              <li><a href="#contact" className="text-gray-300 hover:text-primary-400 transition-colors text-sm sm:text-base">Contact</a></li>
             </ul>
           </div>
 

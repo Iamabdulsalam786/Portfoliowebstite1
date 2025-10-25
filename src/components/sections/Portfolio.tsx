@@ -166,45 +166,45 @@ const Portfolio: React.FC = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="portfolio" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5 sm:opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #3b82f6 2px, transparent 2px),
-                           radial-gradient(circle at 75% 75%, #8b5cf6 2px, transparent 2px)`,
-          backgroundSize: '50px 50px',
-          backgroundPosition: '0 0, 25px 25px'
+          backgroundImage: `radial-gradient(circle at 25% 25%, #3b82f6 1px, transparent 1px),
+                           radial-gradient(circle at 75% 75%, #8b5cf6 1px, transparent 1px)`,
+          backgroundSize: '25px 25px',
+          backgroundPosition: '0 0, 12px 12px'
         }}></div>
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <motion.div variants={itemVariants} className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-6">
+          <motion.div variants={itemVariants} className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
             🎯 Our Portfolio
           </motion.div>
           
-          <motion.h2 variants={itemVariants} className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
             Showcasing <span className="bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">Excellence</span>
           </motion.h2>
           
-          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <motion.p variants={itemVariants} className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
             Discover our innovative solutions that have transformed businesses and delighted users worldwide. 
             Each project tells a story of innovation, creativity, and measurable results.
           </motion.p>
           
           {/* Enhanced Filter Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-8 sm:mb-10 lg:mb-12 px-4">
             {filters.map((filter) => (
               <motion.button
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-full font-semibold transition-all duration-300 text-xs sm:text-sm ${
                   activeFilter === filter.key
                     ? 'bg-gradient-to-r from-primary-600 to-purple-600 text-white shadow-lg'
                     : 'bg-white text-gray-700 hover:bg-primary-50 hover:text-primary-600 border border-gray-200 hover:border-primary-200'
@@ -223,7 +223,7 @@ const Portfolio: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -232,9 +232,9 @@ const Portfolio: React.FC = () => {
               className="group cursor-pointer"
               onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
             >
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary-200">
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary-200">
                 {/* Project Image */}
-                <div className="relative h-32 sm:h-36 overflow-hidden">
+                <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -269,43 +269,43 @@ const Portfolio: React.FC = () => {
                 </div>
                 
                 {/* Project Content */}
-                <div className="p-4">
-                  <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-1">
+                <div className="p-6 sm:p-8">
+                  <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                     {project.title}
                   </h4>
                   
-                  <p className="text-gray-600 mb-3 text-xs leading-relaxed line-clamp-2">
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed">
                     {project.description}
                   </p>
                   
-                  {/* Technologies - Simplified */}
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {project.technologies.slice(0, 2).map((tech, techIndex) => (
-                      <span key={techIndex} className="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-medium">
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                      <span key={techIndex} className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-xs font-medium">
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 2 && (
-                      <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs font-medium">
-                        +{project.technologies.length - 2}
+                    {project.technologies.length > 3 && (
+                      <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">
+                        +{project.technologies.length - 3}
                       </span>
                     )}
                   </div>
                   
-                  {/* Single Result */}
-                  <div className="mb-3">
-                    {project.results.slice(0, 1).map((result, resultIndex) => (
-                      <div key={resultIndex} className="flex items-center text-green-600">
-                        <span className="mr-2 text-xs">✓</span>
-                        <span className="text-xs font-medium line-clamp-1">{result}</span>
+                  {/* Results */}
+                  <div className="mb-6">
+                    {project.results.slice(0, 2).map((result, resultIndex) => (
+                      <div key={resultIndex} className="flex items-center text-green-600 mb-2">
+                        <span className="mr-2 text-sm">✓</span>
+                        <span className="text-sm font-medium">{result}</span>
                       </div>
                     ))}
                   </div>
                   
                   {/* Action Buttons */}
-                  <div className="flex gap-1">
+                  <div className="flex gap-3">
                     <motion.button
-                      className="flex-1 bg-gradient-to-r from-primary-600 to-purple-600 text-white py-1.5 px-3 rounded-md text-xs font-semibold hover:from-primary-700 hover:to-purple-700 transition-all duration-300"
+                      className="flex-1 bg-gradient-to-r from-primary-600 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-primary-700 hover:to-purple-700 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={(e) => {
@@ -316,7 +316,7 @@ const Portfolio: React.FC = () => {
                       View Live
                     </motion.button>
                     <motion.button
-                      className="flex-1 border border-primary-600 text-primary-600 py-1.5 px-3 rounded-md text-xs font-semibold hover:bg-primary-600 hover:text-white transition-all duration-300"
+                      className="flex-1 border border-primary-600 text-primary-600 py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary-600 hover:text-white transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={(e) => {
