@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Box, MeshDistortMaterial } from '@react-three/drei';
+import { OrbitControls, Box, Text } from '@react-three/drei';
 
 const About: React.FC = () => {
   const teamMembers = [
@@ -72,22 +72,50 @@ const About: React.FC = () => {
     { number: '99%', label: 'Client Satisfaction', icon: '⭐' }
   ];
 
-  const AnimatedCube = () => (
-    <Canvas>
-      <OrbitControls enableZoom={false} enablePan={false} enableRotate={true} autoRotate autoRotateSpeed={1} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <Box args={[1, 1, 1]} scale={1.5}>
-        <MeshDistortMaterial
-          color="#3b82f6"
-          attach="material"
-          distort={0.2}
-          speed={1}
-          roughness={0}
-        />
-      </Box>
-    </Canvas>
-  );
+  const AnimatedCube = () => {
+    return (
+      <div className="cube-container">
+        <div className="cube">
+          <div className="cube-face front">
+            <div className="face-content">
+              <div className="face-icon">🚀</div>
+              <div className="face-text">Innovation</div>
+            </div>
+          </div>
+          <div className="cube-face back">
+            <div className="face-content">
+              <div className="face-icon">⭐</div>
+              <div className="face-text">Excellence</div>
+            </div>
+          </div>
+          <div className="cube-face right">
+            <div className="face-content">
+              <div className="face-icon">💡</div>
+              <div className="face-text">Creativity</div>
+            </div>
+          </div>
+          <div className="cube-face left">
+            <div className="face-content">
+              <div className="face-icon">📈</div>
+              <div className="face-text">Growth</div>
+            </div>
+          </div>
+          <div className="cube-face top">
+            <div className="face-content">
+              <div className="face-icon">🎯</div>
+              <div className="face-text">Success</div>
+            </div>
+          </div>
+          <div className="cube-face bottom">
+            <div className="face-content">
+              <div className="face-icon">✨</div>
+              <div className="face-text">Quality</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section id="about" className="py-12 sm:py-16 px-3 sm:px-4 lg:px-8 bg-white">
@@ -135,8 +163,8 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-8 h-96 flex items-center justify-center">
-              <div className="w-48 h-48">
+            <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-8 h-[450px] flex items-center justify-center">
+              <div className="w-80 h-80">
                 <AnimatedCube />
               </div>
             </div>

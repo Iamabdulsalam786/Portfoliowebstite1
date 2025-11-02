@@ -90,3 +90,101 @@
     transform: translateY(-20px);
   }
 }
+
+/* 3D Cube Styles */
+.cube-container {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotateCube 8s infinite linear;
+  margin: 0 auto;
+}
+
+.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.face-content {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.face-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.face-text {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Front face */
+.cube-face.front {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  transform: rotateY(0deg) translateZ(100px);
+}
+
+/* Back face */
+.cube-face.back {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+/* Right face */
+.cube-face.right {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+/* Left face */
+.cube-face.left {
+  background: linear-gradient(135deg, #10b981, #059669);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+/* Top face */
+.cube-face.top {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+/* Bottom face */
+.cube-face.bottom {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(0deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(0deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}

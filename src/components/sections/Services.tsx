@@ -17,53 +17,32 @@ const Services: React.FC = () => {
       description: 'Custom websites and web applications built with modern technologies like React, Next.js, and Node.js',
       features: ['Responsive Design', 'CMS Integration', 'E-commerce Solutions', 'Performance Optimization', 'Progressive Web Apps'],
       color: 'from-blue-500 to-blue-600',
-      price: 'Starting at $2,500',
-      timeline: '2-6 weeks'
+      price: 'Starting at $800',
+      timeline: '2-6 weeks',
+      popular: false,
+      badge: 'Modern Tech'
     },
     {
       icon: '📱',
       title: 'React Native Apps',
-      description: 'Cross-platform mobile applications for iOS and Android with native performance',
+      description: 'Cross-platform mobile applications for iOS and Android with native performance and smooth user experience',
       features: ['iOS & Android', 'App Store Optimization', 'Push Notifications', 'Offline Support', 'Real-time Sync'],
       color: 'from-green-500 to-green-600',
-      price: 'Starting at $5,000',
-      timeline: '4-12 weeks'
+      price: 'Starting at $1,500',
+      timeline: '4-12 weeks',
+      popular: true,
+      badge: 'Most Popular'
     },
     {
       icon: '🎨',
       title: 'Portfolio Websites',
-      description: 'Beautiful, professional portfolio sites that showcase your work and attract clients',
+      description: 'Beautiful, professional portfolio sites that showcase your work and attract clients with stunning designs',
       features: ['Custom Design', 'SEO Optimized', 'Fast Loading', 'Mobile Responsive', 'Contact Forms'],
       color: 'from-purple-500 to-purple-600',
-      price: 'Starting at $1,500',
-      timeline: '1-3 weeks'
-    },
-    {
-      icon: '🔍',
-      title: 'SEO Optimization',
-      description: 'Comprehensive SEO strategies to improve your website visibility and organic traffic',
-      features: ['Keyword Research', 'On-page SEO', 'Technical SEO', 'Analytics Setup', 'Content Strategy'],
-      color: 'from-orange-500 to-orange-600',
-      price: 'Starting at $800/month',
-      timeline: 'Ongoing'
-    },
-    {
-      icon: '⚙️',
-      title: 'Technical Consulting',
-      description: 'Expert guidance on technology choices, architecture, and digital strategy',
-      features: ['Architecture Planning', 'Technology Stack', 'Performance Audit', 'Security Review', 'Code Review'],
-      color: 'from-indigo-500 to-indigo-600',
-      price: '$150/hour',
-      timeline: 'As needed'
-    },
-    {
-      icon: '📊',
-      title: 'Digital Solutions',
-      description: 'Comprehensive digital transformation to modernize your business processes',
-      features: ['Process Automation', 'Data Analytics', 'Cloud Migration', 'Integration Services', 'API Development'],
-      color: 'from-pink-500 to-pink-600',
-      price: 'Custom Quote',
-      timeline: '3-6 months'
+      price: '$100 - $150',
+      timeline: '1-2 weeks',
+      popular: false,
+      badge: 'Best Value'
     }
   ];
 
@@ -128,7 +107,7 @@ const Services: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {services.map((service, index) => (
             <motion.div
@@ -136,72 +115,86 @@ const Services: React.FC = () => {
               variants={itemVariants}
               className="group"
             >
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 sm:p-8 lg:p-10 h-full border border-gray-100 hover:border-primary-200 relative overflow-hidden">
-                {/* Gradient Background on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                
-                <div className="relative z-10">
-                  <div className="text-center mb-6 sm:mb-8">
-                    <motion.div
-                      className={`inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-r ${service.color} text-white mb-6 shadow-lg`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <span className="text-2xl sm:text-3xl lg:text-4xl">{service.icon}</span>
-                    </motion.div>
-                    
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    
-                    <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
+              <div className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-4 sm:p-6 lg:p-8 h-full border-2 relative overflow-hidden ${
+                service.popular ? 'border-primary-200 ring-2 ring-primary-100' : 'border-gray-100 hover:border-primary-200'
+              }`}>
+                {/* Popular Badge */}
+                {service.popular && (
+                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-primary-600 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg z-20">
+                    ⭐ Most Popular
                   </div>
+                )}
+                
+                {/* Service Badge */}
+                <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${
+                  service.popular ? 'bg-primary-100 text-primary-700' : 'bg-gray-100 text-gray-600'
+                }`}>
+                  {service.badge}
+                </div>
+                
+                {/* Icon */}
+                <div className="text-center mb-4 sm:mb-6">
+                  <motion.div
+                    className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl bg-gradient-to-r ${service.color} text-white mb-4 shadow-lg`}
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <span className="text-xl sm:text-2xl lg:text-3xl">{service.icon}</span>
+                  </motion.div>
+                  
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-primary-600 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3">
+                    {service.description}
+                  </p>
+                </div>
 
-                  <ul className="space-y-3 mb-6 sm:mb-8">
-                    {service.features.map((feature, featureIndex) => (
-                      <motion.li
-                        key={featureIndex}
-                        className="flex items-center text-gray-700"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: featureIndex * 0.1 }}
-                      >
-                        <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-3 flex-shrink-0`}></div>
-                        <span className="text-sm sm:text-base">{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                {/* Features */}
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                  {service.features.slice(0, 4).map((feature, featureIndex) => (
+                    <motion.li
+                      key={featureIndex}
+                      className="flex items-center text-gray-700"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: featureIndex * 0.1 }}
+                    >
+                      <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.color} rounded-full mr-2 sm:mr-3 flex-shrink-0`}></div>
+                      <span className="text-xs sm:text-sm">{feature}</span>
+                    </motion.li>
+                  ))}
+                </ul>
 
-                  {/* Price and Timeline */}
-                  <div className="border-t border-gray-100 pt-6 mb-6 sm:mb-8">
-                    <div className="flex justify-between items-center mb-4">
-                      <div>
-                        <div className="text-sm text-gray-500">Starting Price</div>
-                        <div className="font-bold text-lg text-gray-900">{service.price}</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-sm text-gray-500">Timeline</div>
-                        <div className="font-semibold text-primary-600">{service.timeline}</div>
-                      </div>
+                {/* Price and Timeline */}
+                <div className="border-t border-gray-100 pt-4 mb-4 sm:mb-6">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <div className="text-xs text-gray-500">Price</div>
+                      <div className="font-bold text-sm sm:text-base text-gray-900">{service.price}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-gray-500">Timeline</div>
+                      <div className="font-semibold text-xs sm:text-sm text-primary-600">{service.timeline}</div>
                     </div>
                   </div>
-
-                  <motion.button
-                    className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105 text-base"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => {
-                      const element = document.getElementById('contact');
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }}
-                  >
-                    Get Started
-                  </motion.button>
                 </div>
+
+                {/* CTA Button */}
+                <motion.button
+                  className="w-full bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-700 hover:to-purple-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-xl"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                >
+                  Get Started
+                </motion.button>
               </div>
             </motion.div>
           ))}
