@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +16,22 @@ const Header: React.FC = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+    const performScroll = () => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      performScroll();
     }
+
     setIsMenuOpen(false);
   };
 
@@ -54,11 +65,21 @@ const Header: React.FC = () => {
 
             {/* Logo - Center on Mobile, Left on Desktop */}
             <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
-              <Link 
-                to="/" 
-                className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent hover:from-primary-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+              <Link
+                to="/"
+                className="flex items-center gap-2 group"
+                aria-label="TechCraft Home"
               >
-                TechCraft
+                <img
+                  src={`${process.env.PUBLIC_URL}/techcraftlogo.png`}
+                  alt="TechCraft logo"
+                  className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent group-hover:from-primary-700 group-hover:to-purple-700 transition-all duration-300">
+                  TechCraft
+                </span>
               </Link>
             </div>
 

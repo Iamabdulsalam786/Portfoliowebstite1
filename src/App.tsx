@@ -1,14 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
-import Hero from './components/sections/Hero';
-import Services from './components/sections/Services';
-import Portfolio from './components/sections/Portfolio';
-import About from './components/sections/About';
-import Pricing from './components/sections/Pricing';
-import Testimonials from './components/sections/Testimonials';
-import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
+import Home from './pages/Home';
+import TipTokProject from './pages/TipTokProject';
 
 function App() {
   return (
@@ -16,13 +11,10 @@ function App() {
       <div className="App">
         <Header />
         <main>
-          <Hero />
-          <Services />
-          <Portfolio />
-          <About />
-          <Pricing />
-          <Testimonials />
-          <Contact />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects/tiptok" element={<TipTokProject />} />
+          </Routes>
         </main>
         <Footer />
       </div>

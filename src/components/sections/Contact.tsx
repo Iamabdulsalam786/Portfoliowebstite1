@@ -17,42 +17,37 @@ interface FormData {
 const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
   const projectTypes = [
-    'Web Development',
-    'Mobile App Development',
-    'Portfolio Website',
-    'E-commerce Platform',
-    'UI/UX Design',
-    'SEO Optimization',
-    'Technical Consulting',
+    'Hire Abdul Salam (React Native / React)',
+    'Hire Danial Qais (Django / FastAPI)',
+    'Book both developers (Squad retainer)',
+    'Discovery sprint / roadmap audit',
+    'Tech due diligence',
     'Other'
   ];
 
   const budgetRanges = [
-    'Under $5,000',
-    '$5,000 - $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000+',
-    'Not sure yet'
+    '$600 / month (Part-time developer)',
+    '$1,500 / month (Full-time developer)',
+    '$1,950 / month (Core duo 40 hrs)',
+    '$2,750 / month (Core duo 60 hrs)',
+    'Custom / not sure yet'
   ];
 
   const timelines = [
-    'ASAP (Rush job)',
-    '1-2 weeks',
-    '1 month',
-    '2-3 months',
-    '3+ months',
-    'Flexible'
+    'Ready to start within 7 days',
+    'Kicking off next month',
+    'Planning 2-3 months ahead',
+    'Exploring options / flexible'
   ];
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
+
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
       console.log('Form submitted:', data);
@@ -71,13 +66,7 @@ const Contact: React.FC = () => {
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <Icosahedron args={[1]} scale={1.2}>
-        <MeshDistortMaterial
-          color="#3b82f6"
-          attach="material"
-          distort={0.3}
-          speed={1.5}
-          roughness={0}
-        />
+        <MeshDistortMaterial color="#3b82f6" attach="material" distort={0.3} speed={1.5} roughness={0} />
       </Icosahedron>
     </Canvas>
   );
@@ -87,23 +76,22 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Get In <span className="text-primary-600">Touch</span>
+            Book your <span className="text-primary-600">monthly slot</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your ideas into reality? Let's discuss your project and create something amazing together.
+            Tell us about your roadmap and we’ll confirm availability, kick-off timing, and an onboarding plan tailored to your team.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
-          {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Start Your Project</h3>
-            
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Reserve a discovery call</h3>
+
             {submitStatus === 'success' && (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span className="font-semibold">Thank you! We'll get back to you within 24 hours.</span>
+                  <span className="font-semibold">Thanks! We’ll respond within one business day.</span>
                 </div>
               </div>
             )}
@@ -138,7 +126,7 @@ const Contact: React.FC = () => {
                     Email Address *
                   </label>
                   <input
-                    {...register('email', { 
+                    {...register('email', {
                       required: 'Email is required',
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -329,7 +317,7 @@ const Contact: React.FC = () => {
                 <h4 className="text-lg sm:text-xl font-bold">Quick Response Promise</h4>
               </div>
               <p className="text-green-100 text-sm sm:text-base">
-                We guarantee a response within 24 hours. For urgent projects, 
+                We guarantee a response within 24 hours. For urgent projects,
                 mention "URGENT" in your message and we'll prioritize your inquiry.
               </p>
             </div>
